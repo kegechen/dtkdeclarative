@@ -1,0 +1,18 @@
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+set(CHAMELEON_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../chameleon/imports")
+add_definitions(-DCHAMELEON_PATH=\"${CHAMELEON_PATH}\")
+# 打开 Qt DEPRECATED 警告
+add_definitions(-DQT_DEPRECATED_WARNINGS)
+
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/../src")
+endif()
+
+add_subdirectory(exhibition)
+add_subdirectory(qml-inspect)

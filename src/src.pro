@@ -12,6 +12,7 @@ contains(QMAKE_HOST.arch, mips.*): QMAKE_LFLAGS_SHLIB += "-Wl,-z,noexecstack"
 isEmpty(LIB_INSTALL_DIR) {
     LIB_INSTALL_DIR = $$[QT_INSTALL_LIBS]
 }
+message(QT_INSTALL_LIBS $$[QT_INSTALL_LIBS])
 
 isEmpty(DTK_QML_APP_PLUGIN_PATH) {
     DTK_QML_APP_PLUGIN_PATH = $$LIB_INSTALL_DIR/$$TARGET/qml-app

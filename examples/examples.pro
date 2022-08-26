@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 SUBDIRS += exhibition
 
-CONFIG(debug, debug|release) {
-    SUBDIRS += debug
-}
+#CONFIG(debug, debug|release) {
+#    SUBDIRS += debug
+#}

@@ -34,4 +34,5 @@ QML_DESIGNER_IMPORT_PATH =
 
 CONFIG(debug, debug|release) {
     unix:QMAKE_RPATHDIR += $$OUT_PWD/../../src
+    message("QMAKE_RPATHDIR : $$QMAKE_RPATHDIR")
 }
