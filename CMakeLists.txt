@@ -13,7 +13,7 @@ include(GNUInstallDirs)
 
 set (BUILD_DOCS ON CACHE BOOL "Generate doxygen-based documentation")
 set (BUILD_TESTING ON CACHE BOOL "Build unit tests")
-
+set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 message("
     BUILD_DOCS:   ${BUILD_DOCS} \n
     BUILD_TESTING:${BUILD_TESTING} \n"
@@ -22,6 +22,18 @@ message("
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
+
+set (USE_QQuickStylePlugin OFF)
+foreach(f ${Qt5QuickControls2_PRIVATE_INCLUDE_DIRS})
+    if (EXISTS "${f}/private/qquickstyleplugin_p.h")
+        message("exist QQuickStylePlugin")
+        add_definitions(-DUSE_QQuickStylePlugin)
+        set (USE_QQuickStylePlugin ON)
+        break()
+    else()
+        #message("not exist ${f}/private/qquickstyleplugin_p.h")
+    endif()
+endforeach()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Wextra")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--as-needed")

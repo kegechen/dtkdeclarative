@@ -15,16 +15,6 @@ find_package(Qt5 REQUIRED COMPONENTS
 )
 
 # qtHaveModule(quickcontrols2-private)
-foreach(f ${Qt5QuickControls2_PRIVATE_INCLUDE_DIRS})
-    if (EXISTS "${f}/private/qquickstyleplugin_p.h")
-        message("exist QQuickStylePlugin")
-        add_definitions(-DUSE_QQuickStylePlugin)
-        break()
-    else()
-        #message("not exist ${f}/private/qquickstyleplugin_p.h")
-    endif()
-endforeach()
-
 #Qt5QuickControls2_PRIVATE_INCLUDE_DIRS
 #Qt5Quick_PRIVATE_INCLUDE_DIRS
 
